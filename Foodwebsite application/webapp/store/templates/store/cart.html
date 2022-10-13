@@ -1,0 +1,63 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+  <div class="card1" >
+    <h4>Contact Information</h4>
+      <div class="container">
+       <form method="POST" action=""  enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit">
+      </form>
+      </div>
+  </div>
+
+<div class="card2">
+<h4>Total Orders</h4>
+  <div class="container">
+    <h2><b>{{total_orders}}</b></h2>
+  </div>
+</div>
+<div class="card2">
+  <h4>Customer Options</h4>
+ <div class="container">
+
+      <h4><a href="" ><button class="button2" >Place New Order</button></a></h4>
+ </div>
+  </div>
+
+    </div>
+
+ <div class ="tables" >
+
+
+<table>
+
+  <caption>Orders Details</caption>
+  <tr>
+    <th>Product</th>
+    <th>Product Name</th>
+    <th>Delivery Status</th>
+    <th>Date Ordered</th>
+    <th>Quantity</th>
+    <th>Total Price</th>
+
+    <th>Remove</th>
+  </tr>
+  {% for o in orders %}
+  <tr>
+    <td><img src="{{o.product.productimage.url}}" height="70" width="100"/></td>
+    <td>{{o.product.productname}}</td>
+    <td>{{o.status}}</td>
+    <td>{{o.date_created}}</td>
+    <td>{{o.quantity}}</td>
+    <td>{% widthratio o.product.productprice 1 o.quantity %}</td>
+    <td><a href="{% url 'accounts:user_remove' o.id %}"><i class="fa fa-trash icon" >  REMOVE</i></a></td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+
+{% endblock content %}
+

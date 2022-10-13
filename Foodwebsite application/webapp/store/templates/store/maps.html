@@ -1,0 +1,56 @@
+{% extends 'store/main.html' %}
+{% block content %}
+{% load static %}
+
+ <style>
+        .container {
+            min-height: 60vh;
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+
+<div class="container mb-5">
+    <div class="row justify-content-center mt-5">
+          <div class="ui icon big input" id="location-input-section">
+            <input type="text" placeholder="Enter Your Address" id="autocomplete" />
+            <i aria-hidden="false" class="dot circle outline link icon" id="location-button"></i>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+<script  type="text/javascript">
+
+    $(document).ready(function(){
+
+        navigator.geolocation.getCurrentPosition(function (position) {
+                getUserAddressBy(position.coords.latitude, position.coords.longitude)
+            },
+        function (error) {
+            console.log("The Locator was denied :(")
+        })
+
+        function getUserAddressBy(lat, long) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var address = JSON.parse(this.responseText)
+                    console.log(address)
+                }
+            };
+            xhttp.open("GET", "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+long+"&key=AIzaSyAsuD5lCr7KNX0KDdaYrDh_4EAMwu68in8",
+             true);
+            xhttp.send();
+        }
+
+    });
+</script>
+
+{% endblock content %}

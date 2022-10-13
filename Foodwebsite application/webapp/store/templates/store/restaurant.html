@@ -1,0 +1,29 @@
+{% extends 'store/main.html' %}
+{% block content %}
+{% load static %}
+ <div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 p-4">
+                {% csrf_token %}
+                        <div class="row">
+                   {% for app in hotel %}
+                            <div class="card1">
+                                <a href = "{% url 'restaurantview' app.slug%}">
+                                <div class="card-body">
+                                    <div class="category-image">
+                                        <img src="{{ app.image.url }}" class="w-100"/>
+                                        <hr>
+                                    </div>
+                                    <h4 class= "text-center"> {{ app.name }}</h4>
+                                </div>
+                                 </a>
+                            </div>
+                {%endfor%}
+             </div>
+
+        </div>
+    </div>
+ </div>
+
+{% endblock content %}
+

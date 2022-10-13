@@ -1,0 +1,71 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+</div>
+
+<div class="cardholder">
+    <div class="card1">
+        <div class="cardimage"> <img src="{% static 'images/eating food.jpg' %}" height="100" width="100" ><br></div>
+
+    <div class="incard">
+        <h1>FAST AND SECURE SERVICES</h1>
+            <P>Its fasts simple and convenient,welcome and experience the
+                best customer services</P>
+    </div>
+
+    </div>
+    <div class="card1">
+        <div class="cardimage"> <img src="{% static 'images/sharing.jpg' %}" height="100" width="100" ><br></div>
+    <div class="incard">
+        <h1> DURING THE BUSSIEST HOURS</h1>
+        <P>You can always rely on us to ensure you get access to our foods </P>
+    </div>
+    </div>
+
+    <div class="card1">
+        <div class="cardimage"> <img src="{% static 'images/french-fries-in-box-elena-elisseeva.jpg' %}" height="100" width="100" ><br></div>
+    <div class="incard">
+
+    <h1 >SHOP AND VIEW OUR LATEST PRODUCTS</h1>
+    <P>Where every flavor tells a story at low cost and high quality</P>
+    </div>
+    </div>
+<!--    <div class="conshop">-->
+
+<!--        <h2>Sign in for the best<br> experince</h2>-->
+
+<!--        <div class="signin">-->
+<!--            <a href=""><button class="signinbtn">Sign in securely</button></a>-->
+<!--         </div>-->
+<!--    </div>-->
+<!--    <div class="conshops">-->
+
+<!--        <h2>Safely packing and Home delivery.YOU order WE deliver FAST</h2>-->
+<!--	</div>-->
+
+</div>
+
+
+
+<h1> HOT DEALS </h1>
+<div class="home"></div>
+	<div class="row">
+		{% for app in hotel %}
+		<div class="col-lg-4">
+			<img class="thumbnail" src={{ app.image.url }}>
+			<div class="box-element product">
+				<h6><strong>{{app.name}}</strong></h6>
+				<hr>
+
+				<button  class="btn btn-outline-secondary add-btn">Add to Cart<i class="fa fa-shopping-cart"></i></button>
+				<a class="btn btn-outline-success" href="{% url 'view' %}">View</a>
+				<h4 style="display: inline-block; float: right"><strong>{{app.price}}</strong></h4>
+            </div>
+        </div>
+		{%endfor%}
+		</div>
+
+	</div>
+
+{% endblock content %}

@@ -1,0 +1,59 @@
+{% load static %}
+<footer>
+<div class="footer">
+
+<div class="company">
+                    <h2>company</h2><br>
+                    <ul>
+                       <li><a href="{% url 'about' %}">about us</a></li>
+                       <li><a href="{% url 'services' %}">our services</a> </li>
+                       <li><a href="">privacy policy</a></li>
+                    </ul>
+</div>
+<div class="help">
+                    <h2>get help </h2><br>
+                    <ul>
+                        <li><a href="">FAQ</a></li>
+                        <li><a href="">returns</a></li>
+                        <li><a href="">order status</a></li>
+                        <li><a href="">payment options</a></li>
+                    </ul>
+</div>
+<div class="tacts">
+                    <h2>contact us</h2><br>
+                    <ul>
+                        <li><a href="">+254 704335355</a></li>
+                        <li><a href="">georgekym30@gmail.com</a></li>
+                    </ul>
+</div>
+<div class="social">
+                    <h2>follow us</h2>
+                    <br>
+<div class="social links">
+                        <a href=""><i class="fa fa-facebook icon"></i></a>
+                        <a href=""><i class="fa fa-twitter icon"></i></a>
+                        <a href=""><i class="fa fa-instagram icon"></i></a>
+                        <a href=""><i class="fa fa-shopping-cart icon" ></i></a>
+</div>
+</div>
+
+                <!--Div where the WhatsApp will be rendered-->
+<div id="WAButton"></div>
+
+<script type="text/javascript">
+
+  /** $(function () {
+           $('#WAButton').floatingWhatsApp({
+               phone: '0743219405',
+               headerTitle: 'Chat with us on WhatsApp!',
+               popupMessage: 'Hello, how can we help you?',
+               showPopup: true, //Enables popup display
+               buttonImage: '<img src="static/whatsapp.svg" />',
+               position: "right"
+
+           });
+       });**/
+</script>
+</div>
+</footer>
+

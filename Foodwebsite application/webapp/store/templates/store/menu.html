@@ -1,0 +1,43 @@
+{% extends 'store/main.html' %}
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-12 col-sm-12 p-4">
+            <h2 class= "text-center"> {{ hotel.name}} </h2>
+                {% csrf_token %}
+                <div class="row">
+                    {% for app in menuitem %}
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                              <div class="d-flex flex-row">
+                                <a href = "{% url 'menuitemview' app.id hotel.id %}">
+                                <div class="card-body">
+                                    <div class="col-md-6 p-4" >
+                                        <img class="picture" src="{{ app.MenuItem_image.url }}"/>
+                                    </div>
+                                    <label class="item-title">{{ app.name }}</label>
+                                    <div class="form-check-inline">
+                                       <label class="form-check-label">
+                                           <input class="form-check-input" type="radio">
+                                           {{app.price}}
+                                       </label>
+                                    </div>
+                                    <div>
+                                       <button class="btn-info mt-3"> Add to cart</button>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                    <hr>
+        </div>
+         {% endfor %}
+{% endblock content %}
